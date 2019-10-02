@@ -1,0 +1,367 @@
+#!/usr/bin/expect
+#command to run for 2h, 1 second interval: ndsLoadStats -i1 -d 2h
+#send output to /home/ubuntu/live_bdsa_fds_tps_kpis/
+#run script with cron once every 5 minutes
+set force_conservative 0  ;# set to 1 to force conservative mode even if
+                          ;# script wasn't run conservatively originally
+if {$force_conservative} {
+        set send_slow {1 .1}
+        proc send {ignore arg} {
+                sleep .1
+                exp_send -s -- $arg
+        }
+}
+
+set servers { bdstor011 bdstor021 bdstor031 bdstor041 bdstor051 bdstor061
+ }
+
+
+set timeout 30
+set file_path "/home/sramanan/scripts/OneNDS/logs"
+
+spawn /bin/bash
+expect  "\$ "
+
+## fdstor001 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdstor001\r"
+expect "assword: "
+send -- "pharfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+
+## fdstor002 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdstor002\r"
+expect "assword: "
+send -- "pharfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## fdstor003 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdstor003\r"
+expect "assword: "
+send -- "pharfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## fdstor004 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdstor004\r"
+expect "assword: "
+send -- "pharfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## fdstor005 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdstor005\r"
+expect "assword: "
+send -- "pharfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+
+## fdstor006 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdstor006\r"
+expect "assword: "
+send -- "pharfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+
+## fdstor007 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdstor007\r"
+expect "assword: "
+send -- "pharfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+
+## fdstor008 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdstor008\r"
+expect "assword: "
+send -- "pharfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+
+## fdsmtl001 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdsmtl001\r"
+expect "assword: "
+send -- "techfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## fdsmtl002 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdsmtl002\r"
+expect "assword: "
+send -- "techfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## fdsmtl003 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdsmtl003\r"
+expect "assword: "
+send -- "techfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## fdsmtl004 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdsmtl004\r"
+expect "assword: "
+send -- "techfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## fdsmtl005 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdsmtl005\r"
+expect "assword: "
+send -- "techfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+
+## fdsmtl006 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdsmtl006\r"
+expect "assword: "
+send -- "techfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+
+## fdsmtl007 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdsmtl007\r"
+expect "assword: "
+send -- "techfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+
+## fdsmtl008 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@fdsmtl008\r"
+expect "assword: "
+send -- "techfdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+
+
+
+## bdstor011 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@bdstor011\r"
+expect "assword: "
+send -- "pharbdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## bdstor021 ##
+send -- "ssh sdfrun@bdstor021\r"
+expect "assword: "
+send -- "pharbdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## bdstor031 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@bdstor031\r"
+expect "assword: "
+send -- "pharbdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## bdstor041 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@bdstor041\r"
+expect "assword: "
+send -- "pharbdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## bdstor051 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@bdstor051\r"
+expect "assword: "
+send -- "pharbdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+## bdstor061 ##
+log_file -noappend $file_path/loadstats.txt
+send -- "ssh sdfrun@bdstor061\r"
+expect "assword: "
+send -- "pharbdsSdf$\r"
+expect "$ "
+send -- "ndsLoadStats -i1 -d 2h > /tmp/`hostname`_nlstats.txt\r"
+expect "$ "
+send -- "scp /tmp/`hostname`_nlstats.txt sramanan@10.55.105.229\:/home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "assword: "
+send -- "Cang8tin\r"
+expect "$ "
+send -- "exit\r"
+expect "$ "
+
+#modify permissions of all files to 777
+send -- "chmod 777 -R /home/ubuntu/live_bdsa_fds_tps_kpis/\r"
+expect "$ "
